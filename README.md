@@ -64,13 +64,15 @@ password
 
 **⚠️ 重要：变量不要加引号！**
 ```python -m playwright codegen```
-创建 `code.txt`，包含Playwright操作代码(参考文章https://developer.volcengine.com/articles/7381513582556479515)：
+创建 `code.txt`，包含Playwright操作代码：
+(参考文章https://developer.volcengine.com/articles/7381513582556479515)
 ```python
 page.goto("http://target.com/login")
 page.get_by_label("用户名").fill(username)
 page.get_by_label("密码").fill(password)
 page.get_by_role("button", name="登录").click()
 ```
+**注意**：如果使用CSS选择器模式获取验证码，建议移除或注释掉 `page.goto()`，避免验证码刷新。
 ### 4. 配置大模型
 
 在LLMocr_class.py中设置大模型api、模型和key
