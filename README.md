@@ -21,9 +21,7 @@
 
 ```
 .
-├── brute-force-login.py              # 基础版本（无验证码支持）
-├── brute-force-login-v1.1.py         # 验证码支持版本
-├── brute-force-login-v1.2.py         # 验证码+代理支持版本（推荐）
+├── brute-force-login-v1.2.py         # 验证码+代理支持版本
 ├── LLMocr_class.py                   # OCR识别类（大模型SDK）
 ├── README.md                         # 本说明文档
 ├── usernames.txt                     # 用户名列表（示例）
@@ -65,16 +63,18 @@ password
 ### 3. 准备登录代码
 
 **⚠️ 重要：变量不要加引号！**
-
-创建 `code.txt`，包含Playwright操作代码：
+```python -m playwright codegen```
+创建 `code.txt`，包含Playwright操作代码(参考文章https://developer.volcengine.com/articles/7381513582556479515)：
 ```python
 page.goto("http://target.com/login")
 page.get_by_label("用户名").fill(username)
 page.get_by_label("密码").fill(password)
 page.get_by_role("button", name="登录").click()
 ```
+### 4. 配置大模型
 
-### 4. 运行脚本
+在LLMocr_class.py中设置大模型api、模型和key
+### 5. 运行脚本
 
 #### 基础模式（无验证码）
 
