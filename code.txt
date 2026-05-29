@@ -1,0 +1,8 @@
+    #page.goto("http://64.90.21.73:8081/login")
+    page.get_by_placeholder("用户名").click()
+    page.get_by_placeholder("用户名").fill(username)
+    page.get_by_placeholder("密码").click()
+    page.get_by_placeholder("密码").fill(password)
+    page.get_by_placeholder("验证码").click()
+    page.get_by_placeholder("验证码").fill(captcha_code)
+    page.get_by_role("button", name="登录").click()
